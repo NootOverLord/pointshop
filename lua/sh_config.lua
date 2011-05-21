@@ -11,7 +11,7 @@ POINTSHOP.Config.ShopNotify = true -- Tell the player how many points they have 
 
 POINTSHOP.Config.DisplayPoints = true -- Shows players how many points they have on their screen.
 
-POINTSHOP.Config.AlwaysDrawHats = false -- Should hats always be drawn? Override in your gamemode.
+POINTSHOP.Config.AlwaysDrawHats = true -- Should hats always be drawn? Override in your gamemode.
 
 POINTSHOP.Config.PointsTimer = true -- Enable the timer for giving a player points for playing for a certain amount of time.
 POINTSHOP.Config.PointsTimerDelay = 30 -- Delay in minutes between giving points.
@@ -43,7 +43,7 @@ POINTSHOP.Config.Sellers = {
 			Model = "models/Humans/Group02/male_07.mdl",
 			Position = Vector(0, 0, 0),
 			Angle = Angle(0, 0, 0),
-			Categories = { "Weapons" }
+			Categories = { "Weapons" } 
 		}
 	}
 }

@@ -36,6 +36,9 @@ hook.Add("InitPostEntity", "PointShop_InitPostEntity", function()
 			npc:SetAnimation(ACT_IDLE_ANGRY)
 			npc:CapabilitiesClear()
 			npc:CapabilitiesAdd(CAP_ANIMATEDFACE | CAP_TURN_HEAD)
+			npc:SetNWBool("IsPointShopNPC", true)
+			npc:SetNWInt("PointShopID", seller_id)
+			npc.PointShopID = seller_id
 			for _,v in pairs(ents.GetAll()) do npc:AddEntityRelationship(v, D_LI, 99) end
 			npc:SetNWBool("IsPointShopNPC", true)
 			npc:SetNWInt("PointShopID", seller_id)
@@ -173,6 +176,9 @@ concommand.Add("pointshop_buy", function(ply, cmd, args)
 	end
 	
 	ply:PS_GiveItem(item_id, true)
+	ply:PS_ShowShop(false)
+	timer.Simple(1, function() ply:PS_ShowShop(true) end)
+	
 end)
 
 concommand.Add("pointshop_sell", function(ply, cmd, args)
