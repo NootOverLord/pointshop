@@ -69,6 +69,7 @@ function Player:PS_GiveItem(item_id, buy)
 			self:PS_TakePoints(item.Cost, "bought " .. item.Name)
 			self:PS_ShowShop(false)
 			timer.Simple(1, function() self:PS_ShowShop(true) end)
+			
 		end
 		
 		return true
@@ -82,6 +83,7 @@ function Player:PS_TakeItem(item_id, sell)
 		for id, name in pairs(self.PS_Items) do
 			if name == item_id then
 				MsgN("Removing ", id, " from table")
+				table.remove(self.PS_Items, id)
 			end
 		end
 
@@ -132,6 +134,8 @@ function Player:PS_UpdateItems()
 	
 	self:SetPData("PointShop_Items", glon.encode(self.PS_Items))
 	timer.Simple(1, function() datastream.StreamToClients(self, "PointShop_Items", self.PS_Items) end)
+	
+	
 end
 
 function Player:PS_ShowShop(bool, npc_id)	
@@ -160,6 +164,7 @@ function Player:PS_RemoveHat(item)
 	
 	SendUserMessage("PointShop_RemoveHat", player.GetAll(), self, item.ID)
 end
+
 
 function Player:PS_SendHats()
 	timer.Simple(1, function()
