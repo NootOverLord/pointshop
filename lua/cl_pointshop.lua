@@ -1,7 +1,7 @@
 usermessage.Hook("PointShop_Menu", function(um)
 	if um:ReadBool() then
 		POINTSHOP.Menu = vgui.Create("DFrame")
-		POINTSHOP.Menu:SetSize(475, 475)
+		POINTSHOP.Menu:SetSize(477, 477)
 		POINTSHOP.Menu:SetTitle("PointShop - " .. LocalPlayer():PS_GetPoints() .. " Points!")
 		POINTSHOP.Menu:SetVisible(true)
 		POINTSHOP.Menu:SetDraggable(true)
